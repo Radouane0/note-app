@@ -1,8 +1,9 @@
+import NotesList from "./components/NotesList";
 
-function App() {
+const App = () =>  {
   return (
-    <div className="App">
-      Hello world !
+    <div className="container">
+      <NotesList />
     </div>
   );
 }
