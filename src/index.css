@@ -20,6 +20,13 @@ code {
     padding-left: 15px;
 }
 
+.title {
+    font-size: 40px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-decoration: underline;
+}
+
 .notes-list {
     display: grid;
     grid-gap: 1rem;
@@ -27,13 +34,13 @@ code {
 }
 
 .note.new {
-    background-color: rgb(29, 66, 168);
+    background-color: rgb(46, 221, 60);
 }
 
 textarea {
     border: none;
     resize: none;
-    background-color: rgb(29, 66, 168);
+    background-color: rgb(46, 221, 60);
 }
 
 textarea:focus {
@@ -52,14 +59,19 @@ textarea:focus {
     padding: 5px 10px 5px 10px;
 }
 
+.delete-icon {
+    cursor: pointer;
+}
+
 .note {
-    background-color: #23be38;
+    background-color: #e9d525;
     padding: 1rem;
     min-height: 170px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border-radius: 10px;
+    white-space: pre-wrap;
 }
 
 .note-footer {
