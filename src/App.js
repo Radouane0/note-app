@@ -1,6 +1,6 @@
 import NotesList from "./components/NotesList";
 import { nanoid } from "nanoid"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const App = () =>  {
 
@@ -31,6 +31,19 @@ const App = () =>  {
           date: "30/05/2023"
         }
   ])
+
+
+  useEffect(() => {
+    const savedNotes = JSON.parse(localStorage.getItem('react-notes-app-data'))
+
+    if (savedNotes) {
+      setNotes(savedNotes)
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('react-notes-app-data', JSON.stringify(notes))
+  }, [notes])
 
   const addNote = (text) => {
     const date = new Date()
