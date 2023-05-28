@@ -8,27 +8,32 @@ const App = () =>  {
         {
           id: nanoid(),
           text: "Ceci est ma première note!",
-          date: "09/05/2023"
+          date: "09/05/2023",
+          isFavorite: false
         },
         {
           id: nanoid(),
           text: "Ceci est ma deuxième note!",
-          date: "12/05/2023"
+          date: "12/05/2023",
+          isFavorite: false
         },
         {
           id: nanoid(),
           text: "Ceci est ma troisième note!",
-          date: "17/05/2023"
+          date: "17/05/2023",
+          isFavorite: false
         },
         {
           id: nanoid(),
           text: "Ceci est ma quatrième note!",
-          date: "24/05/2023"
+          date: "24/05/2023",
+          isFavorite: false
         },
         {
           id: nanoid(),
           text: "Ceci est ma cinquième note!",
-          date: "30/05/2023"
+          date: "30/05/2023",
+          isFavorite: false
         }
   ])
 
