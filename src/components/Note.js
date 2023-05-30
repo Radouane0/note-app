@@ -13,12 +13,10 @@ const Note = ({ id, text, date, handleDeleteNote, isFavorite, handleSetFavorite}
                 <AiFillStar 
                     style={{ color: isFavorite ? 'yellow' : 'black' }}
                     className='star-icon'
-                    size='1.3em'
                     onClick={() => handleSetFavorite(id)}
                     />
                 <MdDelete 
                     className='delete-icon' 
-                    size='1.3em' 
                     onClick={() => handleDeleteNote(id)}
                 /> 
             </div>
