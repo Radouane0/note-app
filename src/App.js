@@ -1,6 +1,10 @@
 import NotesList from "./components/NotesList";
+import SearchBar from "./components/SearchBar";
 import { nanoid } from "nanoid"
 import { useEffect, useState } from 'react';
+import { RiMoonClearFill } from 'react-icons/ri'
+import { FaLightbulb } from 'react-icons/fa'
+import { BiNotepad } from 'react-icons/bi'
 
 const App = () =>  {
 
@@ -9,7 +13,7 @@ const App = () =>  {
           id: nanoid(),
           text: "Ceci est ma première note!",
           date: "09/05/2023",
-          isFavorite: false
+          isFavorite: true
         },
         {
           id: nanoid(),
@@ -66,15 +70,42 @@ const App = () =>  {
     setNotes(newNotes)
   }
 
+  const setFavorite = (id) => {
+    const newNotes = [...notes].map((note) => {
+      if (note.id !== id) {
+        return note;
+      }
+      return {
+        ...note, 
+        isFavorite: !note.isFavorite
+      }
+    })   
+    
+    setNotes(newNotes)
+  }
 
+  const [isDarkMode, setIsDarkMode] = useState(false)
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode)
+  }
+
+ 
   return (
-    <div className="container">
-      <div className="title">Notes</div>
-      <NotesList 
-      notes={notes} 
-      handleAddNote={addNote} 
-      handleDeleteNote={deleteNote}
-      />
+    <div className={`container ${isDarkMode ? 'dark' : ''}`}>
+      <div>
+        <div className="title">Notes <BiNotepad className="title-icon"/></div>
+        <SearchBar />
+        <NotesList 
+        notes={notes} 
+        handleAddNote={addNote} 
+        handleDeleteNote={deleteNote}
+        handleSetFavorite={setFavorite}
+        />
+        <button onClick={toggleDarkMode} className="dark-mode-button">
+          {isDarkMode ? <FaLightbulb className="icon" />: <RiMoonClearFill className="icon" />}
+        </button>
+      </div>
     </div>
   );
 }

@@ -29,7 +29,7 @@ const AddNote = ({ handleAddNote }) => {
                 ></textarea>
                 <div className="note-footer">
                     <small>{characterLimit - noteText.length} caractères restants</small>
-                    <button className="save" onClick={handleSaveClick}>Enregistrer</button>
+                    <button className="save" onClick={handleSaveClick}>Ajouter</button>
                 </div>
         </div>
     );
