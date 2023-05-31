@@ -90,20 +90,25 @@ const App = () =>  {
     setIsDarkMode(!isDarkMode)
   }
 
+  const [textFilter, setTextFilter] = useState("")
  
   return (
     <div className={`container ${isDarkMode ? 'dark' : ''}`}>
       <div>
         <div className="title">Notes <BiNotepad className="title-icon"/></div>
-        <SearchBar />
+        <SearchBar 
+        textFilter={textFilter}
+        setTextFilter={setTextFilter}
+        />
         <NotesList 
         notes={notes} 
         handleAddNote={addNote} 
         handleDeleteNote={deleteNote}
         handleSetFavorite={setFavorite}
+        textFilter={textFilter}
         />
         <button onClick={toggleDarkMode} className="dark-mode-button">
-          {isDarkMode ? <FaLightbulb className="icon" />: <RiMoonClearFill className="icon" />}
+          {isDarkMode ? <FaLightbulb className="icon" /> : <RiMoonClearFill className="icon" />}
         </button>
       </div>
     </div>

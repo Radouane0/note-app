@@ -1,7 +1,11 @@
 import React from 'react';
 import { BsSearch } from 'react-icons/bs'
 
-const SearchBar = () => {
+const SearchBar = ({ textFilter, setTextFilter }) => {
+
+    const handleInputChange = (e) => {
+        setTextFilter(e.target.value)
+    }
 
     return (
         <div className='search-bar'>
@@ -12,6 +16,8 @@ const SearchBar = () => {
                 className="search-input"
                 type="text"
                 placeholder="Rechercher une note..."
+                value={textFilter}
+                onChange={handleInputChange}
             />   
         </div>
     );

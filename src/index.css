@@ -13,6 +13,7 @@ code {
 }
 
 .container {
+    min-width: 350px;
     max-width: 1550px;
     margin-right: auto;
     margin-left: auto;
@@ -145,7 +146,7 @@ textarea:focus {
 
 .dark-mode-button {
     margin-top: 20px;
-    font-size: 30px;
+    font-size: 25px;
     border-radius: 20px;
     height: 50px;
 }
