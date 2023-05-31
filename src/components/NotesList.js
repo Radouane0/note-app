@@ -1,7 +1,7 @@
 import Note from './Note'
 import AddNote from './AddNote';
 
-const NotesList = ({ notes, handleAddNote, handleDeleteNote, handleSetFavorite, textFilter }) => {
+const NotesList = ({ notes, handleAddNote, handleDeleteNote, handleSetFavorite, textFilter, setTagId }) => {
     return (
         <div className='notes-list'>
             {notes.filter((note) => {
@@ -15,6 +15,7 @@ const NotesList = ({ notes, handleAddNote, handleDeleteNote, handleSetFavorite, 
                 isFavorite={note.isFavorite}
                 handleDeleteNote={handleDeleteNote}
                 handleSetFavorite={handleSetFavorite}
+                setTagId={setTagId}
             />
         ))}
             <AddNote handleAddNote={handleAddNote}/>
