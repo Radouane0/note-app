@@ -8,17 +8,26 @@ const Note = ({ id, text, date, handleDeleteNote, isFavorite, handleSetFavorite,
 
     return (
         <div className='note'>
-            <div className="note-tags">
-                {tags.map((tag, index) => 
-                <div key={index}
-                style={{
-                    backgroundColor: tag.color
-                }}
-                className='note-tag'>
-                    {tag.text}
-                </div> )}
-            </div>
+            <div className='note-body'>
+            {
+                tags.length > 0 ? 
+                <div className="note-tags">
+                    {
+                        tags.map((tag, index) => 
+                            <div key={index}
+                                style={{
+                                    backgroundColor: tag.color
+                                }}
+                                className='note-tag'>
+                                    {tag.text}
+                            </div>
+                        )
+                    }
+                </div>
+                : <></>
+            }
             <span>{text}</span>
+            </div>
             <div className='note-footer'>
                 <small>{date}</small>
                 <AiFillTag className='tag-icon'
