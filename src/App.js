@@ -17,8 +17,14 @@ const App = () =>  {
           date: "09/05/2023",
           isFavorite: true,
           tags: [
-            "JS",
-            "PHP"
+            {
+              text: "JS",
+              color: "#00ffff"
+            },
+            {
+              text: "JS",
+              color: "#00ffff"
+            }
           ]
         },
         {
@@ -27,7 +33,10 @@ const App = () =>  {
           date: "12/05/2023",
           isFavorite: false,
           tags: [
-            "HTML"
+            {
+              text: "HTML",
+              color: "#00ffff"
+            }
           ]
         },
         {
@@ -36,7 +45,10 @@ const App = () =>  {
           date: "17/05/2023",
           isFavorite: false,
           tags: [
-            "CSS"
+            {
+              text: "CSS",
+              color: "#00ffff"
+            }
           ]
         },
         {
@@ -124,6 +136,7 @@ const App = () =>  {
     newNotes[index] = newNote
     setNotes(newNotes)
   }
+
 
 
   return (

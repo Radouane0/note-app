@@ -3,11 +3,14 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { BsFillTrashFill } from 'react-icons/bs'
 
+
 function TagModal({ tagId, setTagId, tags, setTags }) {
 
   const [localTags, setLocalTags] = useState(tags)
 
   const [inputTag, setInputTag] = useState("")
+
+  const [inputTagColor, setInputTagColor] = useState("")
 
   useEffect(() => {
     setLocalTags(tags)
@@ -15,9 +18,10 @@ function TagModal({ tagId, setTagId, tags, setTags }) {
 
   const handleClose = () => setTagId(-1);
 
-  const handleDeleteTags = (tag) => {
-    const newTags = localTags.filter((t) => t !== tag)
-    setLocalTags(newTags)
+  const handleDeleteTags = (index) => {
+    const newLocalTags = [...localTags];
+    newLocalTags.splice(index, 1);
+    setLocalTags(newLocalTags)
   }
 
   const handleSave = () => {
@@ -31,10 +35,27 @@ function TagModal({ tagId, setTagId, tags, setTags }) {
 
   const handleAddTag = () => {
     const newLocalTags = [...localTags]
-    newLocalTags.push(inputTag)
+    newLocalTags.push({
+      text: inputTag,
+      color: inputTagColor
+    })
     setLocalTags(newLocalTags)
   }
 
+  const handleSetTagColor = (e, index) => {
+    const newLocalTags = [...localTags]
+    newLocalTags[index] = {
+      ...localTags[index],
+      color: e.target.value
+    }
+    setLocalTags(newLocalTags)
+  }
+
+  const handleSetInputTagColor = (e) => {
+    setInputTagColor(e.target.value)
+  }
+
+  
 
 
   return (
@@ -48,9 +69,15 @@ function TagModal({ tagId, setTagId, tags, setTags }) {
               (tag, index) => {
                 return (
                   <div key={index} className='tags-choice'>
-                    <p className='tag'>{tag}</p>
+                    <input
+                      type="color"
+                      className="color"
+                      value={tag.color}
+                      onChange={(e) => handleSetTagColor(e, index)}
+                    />
+                    <p className='tag'>{tag.text}</p>
                     <BsFillTrashFill className='trash-icon'
-                    onClick={() => handleDeleteTags(tag)}
+                    onClick={() => handleDeleteTags(index)}
                     />
                   </div>
 
@@ -58,8 +85,13 @@ function TagModal({ tagId, setTagId, tags, setTags }) {
               }
             )
           }
-
         <div className='add-tags'>
+        <input
+          type="color"
+          className="color"
+          value={inputTagColor}
+          onChange={handleSetInputTagColor}
+        />
           <input 
           placeholder='Saisissez un tag...' 
           className='input-tags'

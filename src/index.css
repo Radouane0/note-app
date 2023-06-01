@@ -182,6 +182,7 @@ textarea:focus {
     font-size: 20px;
     cursor: pointer;
     margin-top: 8px;
+    margin-left: 250px;
 }
 
 .add-tags {
@@ -200,5 +201,12 @@ textarea:focus {
     border-radius: 10px;
     border: 1px solid black;
 }
+
+.color-icon {
+    margin-top: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
 
 
