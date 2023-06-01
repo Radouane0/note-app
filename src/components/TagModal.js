@@ -10,10 +10,11 @@ function TagModal({ tagId, setTagId, tags, setTags }) {
 
   const [inputTag, setInputTag] = useState("")
 
-  const [inputTagColor, setInputTagColor] = useState("")
+  const [inputTagColor, setInputTagColor] = useState("#ff0000")
 
   useEffect(() => {
     setLocalTags(tags)
+    console.log(tags)
   }, [tags])
 
   const handleClose = () => setTagId(-1);
@@ -55,6 +56,15 @@ function TagModal({ tagId, setTagId, tags, setTags }) {
     setInputTagColor(e.target.value)
   }
 
+  const handleSetTagText = (e, index) => {
+    const newLocalTags = [...localTags]
+    newLocalTags[index] = {
+      ...localTags[index],
+      text: e.target.value
+    }
+    setLocalTags(newLocalTags)
+  }
+
   
 
 
@@ -75,7 +85,12 @@ function TagModal({ tagId, setTagId, tags, setTags }) {
                       value={tag.color}
                       onChange={(e) => handleSetTagColor(e, index)}
                     />
-                    <p className='tag'>{tag.text}</p>
+                    <input 
+                      placeholder='Saisissez un tag...' 
+                      className='input-tags'
+                      value={tag.text}
+                      onChange={(e) => handleSetTagText(e, index)}
+                    />
                     <BsFillTrashFill className='trash-icon'
                     onClick={() => handleDeleteTags(index)}
                     />

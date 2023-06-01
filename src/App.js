@@ -19,11 +19,11 @@ const App = () =>  {
           tags: [
             {
               text: "JS",
-              color: "#00ffff"
+              color: "#DDD30E"
             },
             {
-              text: "JS",
-              color: "#00ffff"
+              text: "PHP",
+              color: "#E124D1"
             }
           ]
         },
@@ -35,7 +35,7 @@ const App = () =>  {
           tags: [
             {
               text: "HTML",
-              color: "#00ffff"
+              color: "#FFAB00"
             }
           ]
         },
@@ -56,12 +56,14 @@ const App = () =>  {
           text: "Ceci est ma quatrième note!",
           date: "24/05/2023",
           isFavorite: false,
+          tags: []
         },
         {
           id: nanoid(),
           text: "Ceci est ma cinquième note!",
           date: "30/05/2023",
-          isFavorite: false
+          isFavorite: false,
+          tags: []
         }
   ])
 

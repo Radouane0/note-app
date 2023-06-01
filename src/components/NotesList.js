@@ -12,6 +12,7 @@ const NotesList = ({ notes, handleAddNote, handleDeleteNote, handleSetFavorite, 
                 id={note.id} 
                 text={note.text} 
                 date={note.date}
+                tags={note.tags}
                 isFavorite={note.isFavorite}
                 handleDeleteNote={handleDeleteNote}
                 handleSetFavorite={handleSetFavorite}

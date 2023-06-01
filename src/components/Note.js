@@ -4,10 +4,20 @@ import { AiFillStar } from 'react-icons/ai'
 import { AiFillTag } from 'react-icons/ai'
 
 
-const Note = ({ id, text, date, handleDeleteNote, isFavorite, handleSetFavorite, setTagId}) => {
+const Note = ({ id, text, date, handleDeleteNote, isFavorite, handleSetFavorite, setTagId, tags}) => {
 
     return (
         <div className='note'>
+            <div className="note-tags">
+                {tags.map((tag, index) => 
+                <div key={index}
+                style={{
+                    backgroundColor: tag.color
+                }}
+                className='note-tag'>
+                    {tag.text}
+                </div> )}
+            </div>
             <span>{text}</span>
             <div className='note-footer'>
                 <small>{date}</small>
