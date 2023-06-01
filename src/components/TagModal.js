@@ -5,13 +5,15 @@ import { BsFillTrashFill } from 'react-icons/bs'
 
 function TagModal({ tagId, setTagId, tags, setTags }) {
 
-  const handleClose = () => setTagId(-1);
-
   const [localTags, setLocalTags] = useState(tags)
+
+  const [inputTag, setInputTag] = useState("")
 
   useEffect(() => {
     setLocalTags(tags)
   }, [tags])
+
+  const handleClose = () => setTagId(-1);
 
   const handleDeleteTags = (tag) => {
     const newTags = localTags.filter((t) => t !== tag)
@@ -22,6 +24,17 @@ function TagModal({ tagId, setTagId, tags, setTags }) {
     setTags(tagId, localTags)
     handleClose()
   }
+
+  const handleTagChange = (e) => {
+    setInputTag(e.target.value)
+  }
+
+  const handleAddTag = () => {
+    const newLocalTags = [...localTags]
+    newLocalTags.push(inputTag)
+    setLocalTags(newLocalTags)
+  }
+
 
 
   return (
@@ -47,8 +60,16 @@ function TagModal({ tagId, setTagId, tags, setTags }) {
           }
 
         <div className='add-tags'>
-          <input placeholder='Saisissez un tag...' className='input-tags'/>
-          <button className='add-button'>Ajouter</button>
+          <input 
+          placeholder='Saisissez un tag...' 
+          className='input-tags'
+          value={inputTag}
+          onChange={handleTagChange}
+          />
+          <button 
+          className='add-button' 
+          onClick={handleAddTag}
+          >Ajouter</button>
         </div>
         </Modal.Body>
         <Modal.Footer>
