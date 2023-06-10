@@ -14,7 +14,7 @@ code {
 
 .container {
     min-width: 350px;
-    max-width: 1550px;
+    max-width: 1200px;
     margin-right: auto;
     margin-left: auto;
     padding-right: 15px;
@@ -32,9 +32,7 @@ code {
 .title {
     font-size: 40px;
     margin-bottom: 15px;
-    border-bottom: 2px solid black;
     margin-bottom: 10px; 
-    width: 15%;
     display: flex;
     align-items: center;
 }
@@ -42,10 +40,6 @@ code {
 .title-icon {
     margin-left: 15px;
     color: #F8B195;
-}
-
-.dark .title {
-    border-bottom: 2px solid #ddd;
 }
 
 .search-bar {
@@ -170,7 +164,8 @@ textarea:focus {
 
 .tags-choice {
     display: flex;
-    justify-content: space-between;
+    margin-bottom: 20px;
+    align-items: center;
 }
 
 .tag {
@@ -188,24 +183,35 @@ textarea:focus {
     font-size: 20px;
     cursor: pointer;
     margin-top: 8px;
-    margin-left: 250px;
+    margin-left: 160px;
 }
 
 .add-tags {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    margin-left: 5%;
+    background-color: #f3efef;
+    border-radius: 0.5rem;
+    padding: 6px;
 }
 
 .input-tags {
-    border-radius: 10px;
+    border-radius: 0.25rem;
     border: 1px solid black;
     padding: 4px;
+    width: 50%;
+    height: 28px;
 }
 
 .add-button {
     cursor: pointer;
     border-radius: 10px;
     border: 1px solid black;
+    margin-bottom: 10px;
+    margin-top: 5px;
 }
 
 .color-icon {
@@ -231,5 +237,23 @@ textarea:focus {
     border: 1px solid darkgray;
 }
 
+.color {
+    width: 15%;
+    height: 28px;
+    margin-right: 10px;
+}
+
+.color-add {
+    width: 50%;
+}
+
+.add-tags .form-control {
+    background-color: inherit;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+}
 
 

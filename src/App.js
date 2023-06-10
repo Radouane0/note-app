@@ -6,7 +6,7 @@ import { RiMoonClearFill } from 'react-icons/ri'
 import { FaLightbulb } from 'react-icons/fa'
 import { BiNotepad } from 'react-icons/bi'
 import TagModal from "./components/TagModal";
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 const App = () =>  {
 
@@ -144,7 +144,7 @@ const App = () =>  {
   return (
     <div className={`container ${isDarkMode ? 'dark' : ''}`}>
       <div>
-        <div className="title">Notes <BiNotepad className="title-icon"/></div>
+        <div className="title">Bloc-notes <BiNotepad className="title-icon"/></div>
         <SearchBar 
         textFilter={textFilter}
         setTextFilter={setTextFilter}

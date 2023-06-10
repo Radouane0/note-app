@@ -14,7 +14,6 @@ function TagModal({ tagId, setTagId, tags, setTags }) {
 
   useEffect(() => {
     setLocalTags(tags)
-    console.log(tags)
   }, [tags])
 
   const handleClose = () => setTagId(-1);
@@ -101,29 +100,37 @@ function TagModal({ tagId, setTagId, tags, setTags }) {
             )
           }
         <div className='add-tags'>
-        <input
-          type="color"
-          className="color"
-          value={inputTagColor}
-          onChange={handleSetInputTagColor}
-        />
-          <input 
-          placeholder='Saisissez un tag...' 
-          className='input-tags'
-          value={inputTag}
-          onChange={handleTagChange}
-          />
-          <button 
-          className='add-button' 
-          onClick={handleAddTag}
-          >Ajouter</button>
+          <h5>Ajouter un tag</h5>
+        <div className='form-control'>
+          <label>Choix du texte</label>
+            <input 
+              placeholder='Saisissez un tag...' 
+              className='input-tags'
+              value={inputTag}
+              onChange={handleTagChange}
+            />
+          </div>
+          <div className='form-control'>
+            <label>Choix de la couleur</label>
+              <input
+                type="color"
+                className="color-add"
+                value={inputTagColor}
+                onChange={handleSetInputTagColor}
+              />
+          </div>
+          <Button variant="primary" 
+          className='add-button'
+          onClick={handleAddTag}>
+            Ajouter
+          </Button>
         </div>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Fermer
           </Button>
-          <Button variant="primary" onClick={handleSave}>
+          <Button variant="success" onClick={handleSave}>
             Enregistrer
           </Button>
         </Modal.Footer>
